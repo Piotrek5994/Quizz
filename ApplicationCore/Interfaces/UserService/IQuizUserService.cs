@@ -4,9 +4,9 @@ namespace BackendLab01;
 
 public interface IQuizUserService
 {
-    Quiz CreateAndGetQuizRandom(int count);
+    Quizz CreateAndGetQuizRandom(int count);
 
-    Quiz? FindQuizById(int id);
+    Quizz? FindQuizById(int id);
 
     void SaveUserAnswerForQuiz(int quizId, int userId, int quizItemId, string answer);
 

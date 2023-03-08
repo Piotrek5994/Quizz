@@ -9,7 +9,7 @@ public static class SeedData
         using (var scope = app.Services.CreateScope())
         {
             var provider = scope.ServiceProvider;
-            var quizRepo = provider.GetService<IGenericRepository<Quiz, int>>();
+            var quizRepo = provider.GetService<IGenericRepository<Quizz, int>>();
             var quizItemRepo = provider.GetService<IGenericRepository<QuizItem, int>>();
 
             QuizItem item1 = new QuizItem(1,"Jaka jest stolica Polski?", new List<string>() {"Wrocław","Poznań","Kraków" }, "Warszawa");
@@ -24,8 +24,8 @@ public static class SeedData
             quizItemRepo.Add(item4);
             quizItemRepo.Add(item5);
 
-            Quiz quiz1 = new Quiz(1,quizItemRepo.FindAll().Where(i => i.Id >= 1 && i.Id <= 3).ToList<QuizItem>(),"Quiz o Polsce");
-            Quiz quiz2 = new Quiz(1,quizItemRepo.FindAll().Where(i => i.Id >= 3 && i.Id <= 5).ToList<QuizItem>(),"Quiz o Europie");
+            Quizz quiz1 = new Quizz(1,quizItemRepo.FindAll().Where(i => i.Id >= 1 && i.Id <= 3).ToList<QuizItem>(),"Quiz o Polsce");
+            Quizz quiz2 = new Quizz(2,quizItemRepo.FindAll().Where(i => i.Id >= 3 && i.Id <= 5).ToList<QuizItem>(),"Quiz o Europie");
 
             quizRepo.Add(quiz1);
             quizRepo.Add(quiz2);

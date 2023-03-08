@@ -7,14 +7,14 @@ namespace UnitTest;
 
 public class MemoryQuizServiceTest
 {
-    private IGenericRepository<Quiz, int> quizRepository = new MemoryGenericRepository<Quiz, int>(new IntGenerator());
+    private IGenericRepository<Quizz, int> quizRepository = new MemoryGenericRepository<Quizz, int>(new IntGenerator());
     private IGenericRepository<QuizItem, int> itemRepository = new MemoryGenericRepository<QuizItem, int>(new IntGenerator());
     private IGenericRepository<QuizItemUserAnswer, string> answerRepository =  new MemoryGenericRepository<QuizItemUserAnswer, string>();
     
     private IQuizAdminService _aservice;
     private IQuizUserService _uservice;
     private User _user = new User() {Id = 1, Username = "Testowy"};
-    private Quiz _quiz; 
+    private Quizz _quiz; 
     
     public MemoryQuizServiceTest()
     {

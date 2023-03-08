@@ -4,10 +4,10 @@ namespace BackendLab01;
 
 public class QuizAdminService:IQuizAdminService
 {
-    private IGenericRepository<Quiz, int> quizRepository;
+    private IGenericRepository<Quizz, int> quizRepository;
     private IGenericRepository<QuizItem, int> itemRepository;
 
-    public QuizAdminService(IGenericRepository<Quiz, int> quizRepository, IGenericRepository<QuizItem, int> itemRepository)
+    public QuizAdminService(IGenericRepository<Quizz, int> quizRepository, IGenericRepository<QuizItem, int> itemRepository)
     {
         this.quizRepository = quizRepository;
         this.itemRepository = itemRepository;
@@ -24,9 +24,9 @@ public class QuizAdminService:IQuizAdminService
         itemRepository.Update(id, quizItem);
     }
 
-    public Quiz AddQuiz(string title, List<QuizItem> items)
+    public Quizz AddQuiz(string title, List<QuizItem> items)
     {
-        return quizRepository.Add(new Quiz( 0, title: title, items: items));
+        return quizRepository.Add(new Quizz( 0, title: title, items: items));
     }
 
     public List<QuizItem> FindAllQuizItems()
@@ -34,7 +34,7 @@ public class QuizAdminService:IQuizAdminService
         return itemRepository.FindAll();
     }
 
-    public List<Quiz> FindAllQuizzes()
+    public List<Quizz> FindAllQuizzes()
     { return quizRepository.FindAll();
     }
 }

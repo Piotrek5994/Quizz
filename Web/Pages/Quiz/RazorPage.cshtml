@@ -1,0 +1,15 @@
+﻿@page
+@model BackendLab01.Pages.Quiz.RazorPageModel
+@{
+}
+
+<H3>@ViewData["Wszystkie Quizzy"]</H3>
+
+<div>
+    @foreach (var item in Model.listaQuizzów)
+    {
+            <div>
+                <h4>@item.Title</h4>
+            </div>
+    }
+</div>

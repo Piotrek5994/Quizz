@@ -2,7 +2,7 @@
 
 namespace BackendLab01;
 
-public class Quiz: IIdentity<int>
+public class Quizz: IIdentity<int>
 {
     public int Id { get; set; }
     
@@ -10,7 +10,7 @@ public class Quiz: IIdentity<int>
     
     public List<QuizItem> Items { get; }
 
-    public Quiz(int id, List<QuizItem> items, string title)
+    public Quizz(int id, List<QuizItem> items, string title)
     {
         Id = id;
         Items = items;

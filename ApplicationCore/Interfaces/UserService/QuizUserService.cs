@@ -5,23 +5,23 @@ namespace BackendLab01;
 
 public class QuizUserService: IQuizUserService
 {
-    private readonly IGenericRepository<Quiz, int> quizRepository;
+    private readonly IGenericRepository<Quizz, int> quizRepository;
     private readonly IGenericRepository<QuizItem, int> itemRepository;
     private readonly IGenericRepository<QuizItemUserAnswer, string> answerRepository;
 
-    public QuizUserService(IGenericRepository<Quiz, int> quizRepository, IGenericRepository<QuizItemUserAnswer, string> answerRepository, IGenericRepository<QuizItem, int> itemRepository)
+    public QuizUserService(IGenericRepository<Quizz, int> quizRepository, IGenericRepository<QuizItemUserAnswer, string> answerRepository, IGenericRepository<QuizItem, int> itemRepository)
     {
         this.quizRepository = quizRepository;
         this.answerRepository = answerRepository;
         this.itemRepository = itemRepository;
     }
 
-    public Quiz CreateAndGetQuizRandom(int count)
+    public Quizz CreateAndGetQuizRandom(int count)
     {
         throw new NotImplementedException();
     }
 
-    public Quiz? FindQuizById(int id)
+    public Quizz? FindQuizById(int id)
     {
         return quizRepository.FindById(id);
     }
