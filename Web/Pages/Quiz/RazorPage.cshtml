@@ -8,8 +8,11 @@
 <div>
     @foreach (var item in Model.listaQuizzów)
     {
-            <div>
                 <h4>@item.Title</h4>
-            </div>
+                //how to add link to quiz?
+                <button>
+                    <a asp-page="/Quiz/Item" asp-route-itemId="@item.Id" asp-route-quizId="@item.Id">Quiz</a>
+                </button>
+                
     }
 </div>
