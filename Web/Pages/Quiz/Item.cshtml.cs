@@ -7,6 +7,7 @@ namespace BackendLab01.Pages
     
     public class QuizModel : PageModel
     {
+        private User _user = new User() { Id = 1, Username = "Testowy" };//przyda siê
         private readonly IQuizUserService _userService;
 
         private readonly ILogger _logger;
@@ -37,7 +38,6 @@ namespace BackendLab01.Pages
             if(quiz?.Items.Count <= itemId)
             {
                 RedirectToPage("Summary");
-                return;
             }
             var quizItem = quiz?.Items[itemId - 1];
             Question = quizItem?.Question;
@@ -51,6 +51,17 @@ namespace BackendLab01.Pages
 
         public IActionResult OnPost()
         {
+            // tutaj jeszcze zapisywa³em odpowiedŸ u¿ytkownika do repo (poparz do klasy userService)
+            _userService.SaveUserAnswerForQuiz(QuizId,_user.Id,ItemId,UserAnswer); //id quizu, id usera, id pytania(itemu), odpowiedz usera
+            var quiz = _userService.FindQuizById(QuizId);
+            if(quiz?.Items.Count <= ItemId)
+            {
+               return RedirectToPage("Summary",new {quizId = QuizId});
+            }
+            //tutaj to robisz
+            // potrzba obiekt quiz ( tak jak w 36 lnijce)
+            // if ( to co pisa³em na mess)
+             // return redirect to page summary
             return RedirectToPage("Item", new {quizId = QuizId, itemId = ItemId + 1});
         }
     }

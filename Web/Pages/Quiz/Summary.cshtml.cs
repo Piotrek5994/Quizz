@@ -4,7 +4,7 @@ namespace BackendLab01.Pages;
 
 public class Summary : PageModel
 {
-    public void OnGet()
+    public void OnGet(int quizId)
     {
         
     }

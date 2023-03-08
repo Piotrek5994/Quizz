@@ -1,4 +1,4 @@
-﻿@page "{quizId}/{itemId}"
+﻿@page "{quizId}"
 @model BackendLab01.Pages.Summary
 @{
     ViewData["Title"] = "summary";
@@ -6,3 +6,5 @@
 }
 
 <H3>@ViewData["Title"]</H3>
+
+<h3>@ViewBag.Answer</h3>
